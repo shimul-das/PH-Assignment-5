@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="myInput">
+        <input type="text" id="myInput2">
+        <input type="submit" value="Submit">
+      </form>
+<script>
+    function validateNumericInput(inputElement) {
+  inputElement.addEventListener("input", function(event) {
+    const value = event.target.value;
+    if (!/^\d*$/.test(value)) {
+      alert("Please enter only numbers.");
+      event.target.value = value.replace(/[^\d]/g, "");
+    }
+  });
+}
+
+const myInput = document.getElementById("myInput");
+const myInput2 = document.getElementById("myInput2");
+validateNumericInput(myInput);
+validateNumericInput(myInput2);
+
+</script>
+<script>
+  getID("geometry-cardsBTN").addEventListener("click", (e) => {
+  e.preventDefault();
+  if (e.target.id === "calculateBTN") {
+    const input1 = Number(e.target.parentNode.children[0].children[0].value);
+    const input2 = Number(e.target.parentNode.children[0].children[2].value);
+    if (input1 == "" || input2 == "" || input1 <= -1 || input2 <= -1) {
+      alert("Please Provide a valid positive numbers only!!!");
+    } else {
+      const name = e.target.parentNode.parentNode.children[0].innerText;
+
+      if (name === "Triangle") {
+        const res = (0.5 * input1 * input2).toFixed(2);
+        displayRes(name, res);
+      } else if (name === "Rectangle") {
+        const res = (input1 * input2).toFixed(2);
+        displayRes(name, res);
+      } else if (name === "Parallelogram") {
+        const res = (input1 * input2).toFixed(2);
+        displayRes(name, res);
+      } else if (name === "Rhombus") {
+        const res = (0.5 * input1 * input2).toFixed(2);
+        displayRes(name, res);
+      } else if (name === "Pentagon") {
+        const res = (0.5 * input1 * input2).toFixed(2);
+        displayRes(name, res);
+      } else if (name === "Ellipse") {
+        const res = (3.14 * input1 * input2).toFixed(2);
+        displayRes(name, res);
+      } else {
+        alert("Not Found!!!");
+      }
+    }
+  } else {
+    return;
+  }
+});
+</script>      
+</body>
+</html>
